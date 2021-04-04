@@ -3,7 +3,11 @@
         <navigation-bar />
 
         <div v-if="summary">
-            <data-header :view="view" @change-view="onChangeView" :summary="summary"  />
+            <data-header
+                :view="view"
+                :summary="summary"
+                @change-input="onChangeInput"
+                @change-view="onChangeView" />
             <covid-table :summary="summary" v-if="view === 'list'" />
             <covid-chart :summary="summary" v-if="view === 'chart'" />
         </div>
@@ -21,6 +25,7 @@ import { fetchSummary } from "./api/covid19api.js";
 
 // let view = ref('list');
 let view = ref('chart');
+let search = ref('');
 
 export default {
     components: { NavigationBar, CovidTable, DataHeader, CovidChart },
@@ -40,13 +45,27 @@ export default {
 
         return {
             summary,
+            search,
             view
+        }
+    },
+
+    computed: {
+        summaryFiltered() {
+            if (!this.search) {
+                return this.summary;
+            }
         }
     },
 
     methods: {
         onChangeView(value) {
             this.view = value;
+        },
+
+        onChangeInput(value) {
+            console.log('onChangeInput', value);
+            this.search = value;
         }
     }
 }

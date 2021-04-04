@@ -10,6 +10,7 @@
                 searchable
                 clear-on-select
                 close-on-select
+                @selected="onChangeSelect"
             ></vue-select>
             <button @click="changeView('list')" :class="{active: view === 'list'}" class="btn btn-outline-secondary" type="button">LIST</button>
             <button @click="changeView('chart')" :class="{active: view === 'chart'}" class="btn btn-outline-secondary" type="button">CHART</button>
@@ -35,6 +36,10 @@ export default {
     methods: {
         changeView(value) {
             this.$emit('change-view', value);
+        },
+
+        onChangeSelect(event) {
+            console.log('onChangeSelect', event.Country);
         }
     }
 }
