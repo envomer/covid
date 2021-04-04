@@ -45,7 +45,7 @@ export default {
             searchValue: null,
             countryList: null,
             tempOption: '',
-            resultsShow: true,
+            resultsShow: false,
         }
     },
 
