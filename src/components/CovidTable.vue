@@ -32,23 +32,8 @@
 </template>
 
 <script>
-import { fetchSummary } from "./../api/covid19api.js";
-import { onMounted, ref } from 'vue'
-
 export default {
-    setup (props) {
-        const summary = ref([])
-        const getSummary = async () => {
-            summary.value = await fetchSummary();
-        }
-
-        onMounted(getSummary) // on `mounted` call `getSummary`
-
-        return {
-            summary,
-            getSummary
-        }
-    }
+    props: ['summary'],
 }
 </script>
 

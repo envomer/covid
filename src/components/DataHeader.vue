@@ -1,8 +1,16 @@
 <template>
     <div class="row mb-3 mt-3">
         <div class="input-group mb-3">
-            <span class="input-group-text"> <i class="bi bi-search"></i> </span>
-            <input type="text" class="form-control" placeholder="Filter...">
+            <span class="input-group-text"><i class="bi bi-search"></i></span>
+            <vue-select
+                v-model="country"
+                :options="summary.Countries"
+                label-by="Country"
+                value-by="Country"
+                searchable
+                clear-on-select
+                close-on-select
+            ></vue-select>
             <button @click="changeView('list')" :class="{active: view === 'list'}" class="btn btn-outline-secondary" type="button">LIST</button>
             <button @click="changeView('chart')" :class="{active: view === 'chart'}" class="btn btn-outline-secondary" type="button">CHART</button>
         </div>
@@ -10,19 +18,22 @@
 </template>
 
 <script>
-import { ref } from 'vue';
 export default {
-    props: ['view'],
-    setup(props) {
-        
+    props: ['view', 'summary'],
+    
+    data() {
         return {
-            
+            country: null,
+            countryList: [{ country: 'United States', code: 'USA' }, { country: 'Taiwan', code: 'TWN' }],
         }
+    },
+
+    mounted() {
+        
     },
 
     methods: {
         changeView(value) {
-            console.log('change-view', value);
             this.$emit('change-view', value);
         }
     }

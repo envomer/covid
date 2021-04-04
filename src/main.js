@@ -1,4 +1,12 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import VueSelect from 'vue-next-select';
+import 'vue-next-select/dist/index.min.css';
 
-createApp(App).mount('#app')
+import App from './App.vue';
+
+
+const app = createApp(App);
+
+app.component('vue-select', VueSelect);
+
+app.mount('#app');
