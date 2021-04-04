@@ -33,7 +33,15 @@
 
 <script>
 export default {
-    props: ['summary'],
+    /**
+     * Props
+     */
+    props: {
+        summary: {
+            type: Object,
+            required: true
+        }
+    },
 }
 </script>
 
