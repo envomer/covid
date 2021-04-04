@@ -22,7 +22,6 @@ export default {
         }
     },
     
-    
     /**
      * Methods
      */
@@ -30,8 +29,6 @@ export default {
         changeView(value) {
             this.$emit('change-view', value);
         },
-
-        
     }
 }
 </script>

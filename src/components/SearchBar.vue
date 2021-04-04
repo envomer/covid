@@ -38,7 +38,6 @@ export default {
         }
     },
 
-
     /**
      * Data
      */
@@ -51,14 +50,12 @@ export default {
         }
     },
 
-
     /**
      * Mounted hook
      */
     mounted() {
         this.countryList = this.summary.Countries.slice();
     },
-
 
     /**
      * Computed properties
@@ -75,7 +72,6 @@ export default {
             return countries;
         }
     },
-
 
     /**
      * Methods

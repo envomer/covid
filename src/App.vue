@@ -26,7 +26,6 @@ import { Summary } from "./api/covid19api";
 import { ref, onMounted } from "vue";
 import { fetchSummary } from "./api/covid19api";
 
-// let view = ref('list');
 let view = ref('chart');
 let search = ref('');
 
@@ -35,7 +34,6 @@ export default {
      * Computed
      */
     components: { NavigationBar, CovidTable, DataHeader, CovidChart, SearchBar },
-
 
     /**
      * Setup
@@ -59,7 +57,6 @@ export default {
         }
     },
 
-    
     /**
      * Computed
      */
@@ -83,7 +80,6 @@ export default {
         }
     },
 
-
     /**
      * Methods
      */
@@ -97,7 +93,6 @@ export default {
         }
     }
 }
-
 </script>
 
 <style>

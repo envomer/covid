@@ -54,8 +54,6 @@ function populateChartData(countries) {
     };
 }
 
-
-
 export default {
     /**
      * Props
