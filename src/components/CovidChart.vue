@@ -52,6 +52,10 @@ export default {
 
         var ctx = this.$refs.chart.getContext('2d');
         var myChart = new Chart(ctx, data);
+    },
+
+    computed: {
+        
     }
 }
 </script>

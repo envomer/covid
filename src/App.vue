@@ -8,8 +8,8 @@
                 :summary="summary"
                 @change-input="onChangeInput"
                 @change-view="onChangeView" />
-            <covid-table :summary="summary" v-if="view === 'list'" />
-            <covid-chart :summary="summary" v-if="view === 'chart'" />
+            <covid-table :summary="summaryFiltered" :search="search" v-if="view === 'list'" />
+            <covid-chart :summary="summaryFiltered" :search="search" v-if="view === 'chart'" />
         </div>
     </div>
 </template>
@@ -55,6 +55,19 @@ export default {
             if (!this.search) {
                 return this.summary;
             }
+
+            let summary = this.summary;
+            let search = this.search;
+            
+            if (search && search.trim() !== '') {
+
+                return {
+                    Global: summary.Global,
+                    Countries: summary.Countries.filter(country => country.Country.toLowerCase().indexOf(search.toLowerCase().trim()) !== -1)
+                }
+            }
+
+            return summary;
         }
     },
 
