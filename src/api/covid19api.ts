@@ -14,8 +14,8 @@ export interface Summary {
 }
 
 export async function fetchSummary(): Promise<Summary> {
-    // let url = 'https://api.covid19api.com/summary';
-    let url = 'http://localhost:3000/mock/api.json';
+    let url = 'https://api.covid19api.com/summary';
+    // let url = 'http://localhost:3000/mock/api.json';
 
     let data = await axios.get(url);
 
