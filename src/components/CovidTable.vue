@@ -1,12 +1,5 @@
 <template>
 <div>
-    <div class="input-group mb-3 mt-3">
-        <span class="input-group-text">
-            <i class="bi bi-search"></i>
-        </span>
-        <input type="text" class="form-control outline-none" placeholder="Search..." />
-    </div>
-
     <table class="table table-hover table-borderless">
         <thead>
             <tr class="bg-light">
@@ -26,7 +19,7 @@
                 <td class="text-end">{{ country.TotalRecovered }}</td>
             </tr>
 
-            <tr class="sum bg-dark text-light" v-if="summary.Global">
+            <tr class="sum bg-light" v-if="summary.Global">
                 <th>TOTALS</th>
                 <th></th>
                 <th class="text-end">{{ summary.Global.TotalConfirmed }}</th>
