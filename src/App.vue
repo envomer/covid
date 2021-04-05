@@ -12,6 +12,12 @@
             <covid-table :summary="summaryFiltered" :search="search" v-if="view === 'list'" />
             <covid-chart :summary="summaryFiltered" :search="search" v-if="view === 'chart'" />
         </div>
+
+        <div class="text-center p-5" v-if="!summary">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
     </div>
 </template>
 

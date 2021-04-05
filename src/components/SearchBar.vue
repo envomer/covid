@@ -5,6 +5,7 @@
             @blur="onBlurInput"
             @input="onInputInput"
             @keyup.enter="onEnterInput"
+            autocomplete="off"
             ref="input"
             type="text"
             class="form-control"
