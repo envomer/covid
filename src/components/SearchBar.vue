@@ -17,7 +17,7 @@
                     href="#"
                     class="list-group-item list-group-item-action"
                     v-for="country in countriesFiltered"
-                    @click.prevent.stop="onClickCountry(country)"
+                    @click.prevent.stop="onClickCountry(country.Country)"
                     :key="country.ID">
                     {{ country.Country }}
                 </a>
@@ -100,20 +100,18 @@ export default {
             self.$nextTick(() => {
                 setTimeout(() => {
                     self.resultsShow = false;
+
+                    this.$emit('change-input', self.searchInput);
                 }, 200);
             })
         },
 
-        onChangeSelect(event) {
-            console.log('onChangeSelect', event.Country);
-        },
-
-        onClickCountry(country) {
-            this.searchInput = country.Country;
+        onClickCountry(value) {
+            this.searchInput = value;
             this.searchValue = null;
             this.resultsShow = false;
 
-            this.$emit('change-input', country.Country);
+            this.$emit('change-input', value);
         }
     }
 }
